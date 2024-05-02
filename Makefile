@@ -1,17 +1,19 @@
 CC=gcc
-CCOPTS=-Wall -Wextra -pthread
-LIBS=
+CCOPTS=-Wall -Wextra -Werror
+LIBS=libvvsfs.a
 
-SRCS=$(wildcard *.c)
+SRCS=$(wildcard *.o)
 TARGETS=$(SRCS:.c=)
 
-.PHONY: all clean
+.PHONY: clean pristine
 
-all: $(TARGETS)
+testfs: testfs.c libvvsfs.a
+	$(CC) $(CCOPTS) -o $@ $< $(LIBS)
+
+libvvsfs.a: block.o image.o
+	ar rcs $@ $^
 
 clean:
 	rm -f $(TARGETS)
-
-%: %.c
-	$(CC) $(CCOPTS) -o $@ $< $(LIBS)
-    
+pristine: clean
+	rm -f libvvsfs.a testfs
