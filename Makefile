@@ -13,6 +13,12 @@ testfs: testfs.c libvvsfs.a
 libvvsfs.a: block.o image.o
 	ar rcs $@ $^
 
+block.o: block.c
+	$(CC) $(CCOPTS) -c $^
+
+image.o: image.c
+	$(CC) $(CCOPTS) -c $^
+
 clean:
 	rm -f $(TARGETS)
 pristine: clean
