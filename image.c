@@ -12,6 +12,7 @@ int image_open(char *filename, int truncate){
         return open(filename, O_RDWR|O_CREAT, 0600);
     }
 }
+
 int image_close(void){
     return close(image_fd);
 }

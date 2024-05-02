@@ -5,7 +5,9 @@ LIBS=libvvsfs.a
 SRCS=$(wildcard *.o)
 TARGETS=$(SRCS:.c=)
 
-.PHONY: clean pristine
+.PHONY: clean pristine test
+
+test: testfs
 
 testfs: testfs.c libvvsfs.a
 	$(CC) $(CCOPTS) -o $@ $< $(LIBS)
