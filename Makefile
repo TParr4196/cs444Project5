@@ -27,4 +27,4 @@ testfs.o: testfs.c
 clean:
 	rm -f $(TARGETS)
 pristine: clean
-	rm -f libvvsfs.a testfs
+	rm -f libvvsfs.a testfs image.txt

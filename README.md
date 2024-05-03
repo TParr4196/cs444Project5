@@ -11,14 +11,16 @@
 `image.c`: defines functionalilty to open, close, and store a global file descriptor representing a disk
 `block.h`: header file for block.c
 `image.h`: header file for image.c
+`ctest.h`: header file for Beej's Test Code
 
 ## Data
-makes use of a file in order to help simulate management of a disk on a computer. 
+makes use of reading and writing to a text file in order to help simulate management of a disk on a computer. 
 It is partitioned into blocks of size 4096 bytes.
 
 ## Functions
 `main`
     `image_open`: opens a global file descriptor representing the disk
     `image_close`: closes the global file descriptor
+    `bread`: writes an unsigned char array to the designated block
 
 ## Notes
