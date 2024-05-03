@@ -1,5 +1,5 @@
 CC=gcc
-CCOPTS=-Wall -Wextra -Werror
+CCOPTS=-Wall -Wextra -Werror -DCTEST_ENABLE
 LIBS=libvvsfs.a
 
 SRCS=$(wildcard *.o)
