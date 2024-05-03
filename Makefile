@@ -9,16 +9,19 @@ TARGETS=$(SRCS:.c=)
 
 test: testfs
 
-testfs: testfs.c libvvsfs.a
-	$(CC) $(CCOPTS) -o $@ $< $(LIBS)
+testfs: libvvsfs.a
+	$(CC) $(CCOPTS) -o $@ $(LIBS)
 
-libvvsfs.a: block.o image.o
+libvvsfs.a: block.o image.o testfs.o
 	ar rcs $@ $^
 
 block.o: block.c
 	$(CC) $(CCOPTS) -c $^
 
 image.o: image.c
+	$(CC) $(CCOPTS) -c $^
+
+testfs.o: testfs.c
 	$(CC) $(CCOPTS) -c $^
 
 clean:
