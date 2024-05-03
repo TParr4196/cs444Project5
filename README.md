@@ -22,5 +22,6 @@ It is partitioned into blocks of size 4096 bytes.
     `image_open`: opens a global file descriptor representing the disk
     `image_close`: closes the global file descriptor
     `bread`: writes an unsigned char array to the designated block
+    `bwrite`: writes from the "disk" to the provided buffer
 
 ## Notes
